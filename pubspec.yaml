@@ -1,6 +1,6 @@
 name: add_remove_continuous_pressure
-description: A starting point for Dart libraries or applications.
-version: 1.0.0
+description: Add a widget that contains an increase button, a decrease button, and a widget that displays the value. You can increase or decrease the number by holding down or clicking once.
+version: 1.0.1
 repository: https://github.com/mustafa3max/add_remove_continuous_pressure
 
 environment:
