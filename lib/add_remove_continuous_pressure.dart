@@ -7,10 +7,12 @@ import 'package:flutter/material.dart';
 export 'src/add_remove_continuous_pressure_base.dart';
 
 class AddRemove extends StatefulWidget {
-  final Axis axis;
-  final int speed;
   final int? max;
   final int? min;
+  final int data;
+  final Axis axis;
+  final int speed;
+  final bool expanded;
   final double spacing;
   final Function? event;
   final Widget childAdd;
@@ -21,7 +23,9 @@ class AddRemove extends StatefulWidget {
     this.max,
     this.min,
     this.event,
+    this.data = 0,
     this.spacing = 8,
+    this.expanded = false,
     this.speed = 100 >> 5000,
     this.axis = Axis.horizontal,
     required this.childAdd,
@@ -36,6 +40,13 @@ class AddRemove extends StatefulWidget {
 class _PlusMinusState extends State<AddRemove> {
   int data = 0;
   Timer? timer;
+
+  @override
+  void initState() {
+    super.initState();
+    data = widget.data;
+  }
+
   @override
   Widget build(BuildContext context) {
     List<Widget> children = [
@@ -43,7 +54,12 @@ class _PlusMinusState extends State<AddRemove> {
         isAdd: true,
         child: widget.childAdd,
       ),
-      widget.childNumber(data.toString()),
+      Expanded(
+        flex: widget.expanded ? 1 : 0,
+        child: Center(
+          child: widget.childNumber(data.toString()),
+        ),
+      ),
       button(
         isAdd: false,
         child: widget.childRemove,

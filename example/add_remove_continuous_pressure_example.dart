@@ -8,8 +8,10 @@ void main() {
         child: AddRemove(
           min: 1,
           max: 10,
+          data: 20,
           speed: 500,
           spacing: 8,
+          expanded: false,
           childAdd: Text("Add"),
           axis: Axis.horizontal,
           childRemove: Text("Remove"),
