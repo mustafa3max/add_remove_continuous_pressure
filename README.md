@@ -21,7 +21,17 @@ void main() {
   runApp(
     MaterialApp(
       home: Material(
-        child: PlusMinus(childAdd: Text("Add"), childRemove: Text("Remove"), childNumber: (data) => Text(data)),
+        child: AddRemove(
+          min: 1,
+          max: 10,
+          speed: 500,
+          spacing: 8,
+          childAdd: Text("Add"),
+          axis: Axis.horizontal,
+          childRemove: Text("Remove"),
+          event: (data) => print(data),
+          childNumber: (data) => Text(data),
+        ),
       ),
     ),
   );
